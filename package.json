@@ -12,6 +12,7 @@
     "url": "https://github.com/mauriciofh/tarefas/issues"
   },
   "homepage": "https://github.com/mauriciofh/tarefas#readme",
+  "main": "app.js",
   "dependencies": {
     "express": "2.5.8",
     "jade": ">= 0.0.1",
@@ -19,7 +20,11 @@
     "redis": "~0.7.2",
     "connect-redis": "~1.4.0"
   },
-  "scripts": {
-    "start": "nodemon app.js"
+  "engines": {
+    "node": "6.11.1"
+  }, 
+  "scripts":{
+   "start": "node app.js",
+   "test": "node app.js"
   }
 }
