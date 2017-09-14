@@ -1,0 +1,25 @@
+{
+  "name": "CRUD-Express-Redis",
+  "version": "0.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mauriciofh/tarefas.git"
+  },
+  "author": "Mauricio Faccin Herbstrith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mauriciofh/tarefas/issues"
+  },
+  "homepage": "https://github.com/mauriciofh/tarefas#readme",
+  "dependencies": {
+    "express": "2.5.8",
+    "jade": ">= 0.0.1",
+    "localStorage": "~1.0.0",
+    "redis": "~0.7.2",
+    "connect-redis": "~1.4.0"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  }
+}
