@@ -17,8 +17,8 @@
     "express": "2.5.8",
     "jade": ">= 0.0.1",
     "localStorage": "~1.0.0",
-    "redis": "~0.7.2",
-    "connect-redis": "~1.4.0"
+    "redis": "*",
+    "connect-redis": "*"
   },
   "engines": {
     "node": "6.11.1"
