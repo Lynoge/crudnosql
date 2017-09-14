@@ -7,6 +7,8 @@ var express = require('express'),
 
 var app = module.exports = express.createServer();
 
+app.set('port', (process.env.PORT || 5000));
+
 // Configuration
 app.configure(function(){
   app.set('views', __dirname + '/views');
@@ -35,7 +37,7 @@ app.get('/remove', routes.removeTodo);
 //app.listen(4000, function(){
 //  console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 //});
-app.set('port', (process.env.PORT || 5000));
+
 app.listen(app.get('port'), function() {
 	console.log('Servidor Inicializado na Porta', app.get('port'));
 });
