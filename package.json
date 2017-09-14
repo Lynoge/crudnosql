@@ -14,14 +14,14 @@
   "homepage": "https://github.com/mauriciofh/crudnosql#readme",
   "main": "app.js",
   "dependencies": {
-    "express": "4.15.12",
+    "express": "*",
     "jade": ">= 0.0.1",
     "localStorage": "~1.0.0",
     "redis": "*",
     "connect-redis": "*"
   },
   "engines": {
-    "node": "6.10.2"
+    "node": "6.11.1"
   }, 
   "scripts":{
    "start": "node app.js",
