@@ -1,0 +1,13 @@
+form(action="/getValuesKey", method="post")
+  p
+    label Digite: 
+    input(type='text',placeholder='Digite uma key abaixo para retornar os valores', name='key', value='#{regex}')
+  p
+    input(type='submit', value='Pesquisar')
+  table
+  each key in listKeys
+    tr
+      td #{key}
+    
+  
+

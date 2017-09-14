@@ -17,14 +17,7 @@ table
         a(href='/remove?id=#{todo.id}') Delete
 br
 a(href='/removeAll') Limpar Database
-h2 Pesquisar Indexes
-form(action="/getKeys", method="post")
-  p
-    label Digite: 
-    input(type='text',placeholder='REGEX ou deixe em branco para *', name='regex', value='#{regex}')
-  p
-    input(type='submit', value='Pesquisar')
-  p #{listaKeys}
-    
-  
+|  
+a(href='/listKeys' target='_blank') Pesquisar Indexes
+
 

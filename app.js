@@ -32,7 +32,8 @@ app.get('/', routes.todo);
 app.get('/todo', routes.todo);
 app.get('/removeAll', routes.removeAll);
 app.post('/save', routes.saveTodo);
-app.get('/getKeys', routes.getKeys);
+app.post('/getValuesKey', routes.getValuesKey);
+app.get('/listKeys', routes.listKeys);
 app.get('/remove', routes.removeTodo);
 //app.listen(4000, function(){
 //  console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

@@ -17,6 +17,7 @@ client.on('connect', function () {
 
 exports.todo = function(req, res){
   var anid= req.query['id'];
+  var regex = req.query.regex || req.body['regex'] || "*";
   var oldText="";
   console.log("View id is =>"+anid);
   if(anid=="" || anid==undefined){
@@ -32,7 +33,7 @@ exports.todo = function(req, res){
     });
   }
   
-  function callBackExe(){
+  function callBackExe(){    
     var todos = [];
     client.hgetall("Todo1", function(err, objs) {
       for(var k in objs) {
@@ -42,13 +43,13 @@ exports.todo = function(req, res){
         };
         todos.push(newTodo);
       }
-      console.log("callBack id is =>"+anid+" And text is =>"+oldText);	
+      console.log("callBack id is =>"+anid+" And text is =>"+oldText);
       res.render('todo', {
         title: 'Nova lista de Tarefas',
         todos: todos,
-	      anid:anid,
-	      oldText:oldText
-      });
+        anid:anid,
+        oldText:oldText
+      });      	
     });
   } 
 };
@@ -96,17 +97,56 @@ exports.removeAll = function(req, res) {
   });
 };
 
-exports.getKeys = function(req, res) {
+exports.listKeys = function(req, res) {
 	var regex = req.query.regex || req.body['regex'] || "*";
-	client.keys(regex, function(err, data) {
-		if (err) {
-			console.log("Problema ao pesquisar as keys:"+ err ); 
-			res.redirect("/todo");
+  var listKeys = [];
+  client.keys(regex, function(err, data) {
+    if (err) {
+      console.log("Problema ao pesquisar as keys:"+ err ); 
+      res.redirect("/listKeys");
     }
     else{
-      res.jason({data:data});
+      console.log(data);
+      listKeys = data;
+      res.render('listKeys', {
+        title: 'Listagem de Keys',
+        regex: regex,
+        listKeys: listKeys        
+      });
     }
-	});
+  });
+};
+
+// gets a hash key with the key-value pair from POST & GET
+// if no field is selected, will get all instead
+exports.getValuesKey = function(req, res) {
+	var key		= req.query.key || req.body.key || "";
+	var field	= req.query.field || req.body.field || "";
+
+	if (key === "") {
+    res.json({err:"Please select a key to get"});
+		return;
+	}
+	
+	if (field === "") {
+		client.hgetall(key, function(err, data) {
+			if (err) {
+				res.json({err:err});
+				return;
+			}
+	
+			res.json({dataData:data});
+		});
+	} else {
+		client.hget(key, field, function(err, data) {
+			if (err) {
+				res.json({err:err});
+				return;
+			}
+
+			res.json({data:data});
+		});	
+	}	
 };
 
 
