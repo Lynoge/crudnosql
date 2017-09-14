@@ -37,7 +37,8 @@ app.get('/remove', routes.removeTodo);
 //app.listen(4000, function(){
 //  console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 //});
+var port = process.env.PORT || 5000;
 
-app.listen(5000, function() {
-	console.log('Servidor Inicializado na Porta', 5000);
+app.listen(port, function() {
+	console.log('Servidor Inicializado na Porta', port);
 });
