@@ -7,7 +7,7 @@ var client = redis.createClient(10118,
 	'redis-10118.c15.us-east-1-2.ec2.cloud.redislabs.com', 
 	{no_ready_check: true});
 
-  client.auth('maumau123', function(err){
+  client.auth('password', function(err){
 	if (err) throw err;
 });
 
