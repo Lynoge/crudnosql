@@ -3,8 +3,8 @@ var redis = require("redis");
 
 // Cria Cliente Redis
 // Porta e hostname são retirados de configuration -> endpoint do redislabs.com
-var client = redis.createClient(10118, 
-	'redis-10118.c15.us-east-1-2.ec2.cloud.redislabs.com', 
+var client = redis.createClient(14202, 
+	'redis-14202.c11.us-east-1-2.ec2.cloud.redislabs.com', 
 	{no_ready_check: true});
 
   client.auth('password', function(err){
